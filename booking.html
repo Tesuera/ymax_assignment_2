@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer booking</title>
+    <link rel="stylesheet" href="./css//main.css">
+    <link rel="stylesheet" href="./css/device.css">
+    <link rel="stylesheet" href="./css/desktop.css">
+</head>
+<body>
+   
+    <div class="form_container">
+        <form class="booking_form" id="booking_form">
+            <a href="./index.html" class="backLand"><< back home</a>
+
+            <h1 class="booking_title">Booking</h1>
+
+            <div class="input_group">
+                <input type="text" name="name" id="name" class="input_field" placeholder="Name">
+                <small class="error_message" id="error_name"></small>
+            </div>
+
+            <div class="input_group">
+                <input type="text" name="email" id="email" class="input_field" placeholder="Email">
+                <small class="error_message" id="error_email"></small>
+            </div>
+
+            <div class="input_group">
+                <input type="text" name="phone" id="phone" class="input_field" placeholder="Phone number">
+                <small class="error_message" id="error_phone"></small>
+            </div>
+
+            <h1 class="reservation_title">Reservation</h1>
+            <div class="input_group">
+                <input type="date" name="date" id="date" class="input_field" placeholder="Reservation date">
+                <small class="error_message" id="error_date"></small>
+            </div>
+
+            <div class="input_group">
+                <select name="time" id="time" class="input_field">
+                    <option value="0" selected>Select Time</option>
+                    <option value="00:00">00:00</option>
+                    <option value="01:00">01:00</option>
+                    <option value="02:00">02:00</option>
+                    <option value="03:00">03:00</option>
+                    <option value="04:00">04:00</option>
+                    <option value="05:00">05:00</option>
+                    <option value="06:00">06:00</option>
+                    <option value="07:00">07:00</option>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                    <option value="22:00">22:00</option>
+                    <option value="23:00">23:00</option>
+                </select>
+                <small class="error_message" id="error_time"></small>
+            </div>
+
+            <div class="booking_btn_group">
+                <button class="reset_btn" type="button" id="reset_btn">Reset Form</button>
+                <button class="confirm_btn" type="submit">Confirm</button>
+            </div>
+        </form>
+        <div class="booking_right">
+            <img src="./assets/images/jackie-tsang-4UEA3GuXwMw-unsplash.jpg" class="right_image top_booking" alt="">
+            <img src="./assets/images/alex-perez-P93ijX1URuU-unsplash.jpg" class="right_image bottom_booking" alt="">
+
+            <h1>Explore the distant corner of the world</h1>
+        </div>
+    </div>
+
+    <script src="./js/validation.js"></script>
+    <script>
+        var error_status = 0;
+        const booking_form = document.querySelector('#booking_form');
+
+        document.querySelector('#reset_btn').onclick = ()=> {
+            error_status = 0;
+            document.querySelector('#error_name').textContent = "";
+            document.querySelector('#error_email').textContent = "";
+            document.querySelector('#error_phone').textContent = "";
+            document.querySelector('#error_date').textContent = "";
+            document.querySelector('#error_time').textContent = "";
+            booking_form.reset();
+        }
+
+        booking_form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            error_status = 0;
+            document.querySelector('#error_name').textContent = "";
+            document.querySelector('#error_email').textContent = "";
+            document.querySelector('#error_phone').textContent = "";
+            document.querySelector('#error_date').textContent = "";
+            document.querySelector('#error_time').textContent = "";
+
+            let formData = new FormData(booking_form);
+            validateName(formData.get('name'));
+            validateEmail(formData.get('email'));
+            validatePhone(formData.get('phone'));
+            validateDate(formData.get('date'));
+            validateTime(formData.get('time'));
+
+            if(!error_status) {
+                alert ("Booking successfully!");
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT SUMMER</title>
+    <link rel="stylesheet" href="./css//main.css">
+    <link rel="stylesheet" href="./css/device.css">
+    <link rel="stylesheet" href="./css/desktop.css">
+</head>
+<body>
+   
+    <div class="about_container">
+        <a href="./index.html" class="backLand"><< back home</a>
+        <h1 class="about_title">About Summer</h1>
+        <p class="about_content">Welcome to Summer, your ultimate destination for all things beach-related! We are passionate about the sun, sand, and surf, and we're thrilled to share our love for the beach with you. our mission is simple: to inspire, inform, and connect beach enthusiasts from around the world. We believe that the beach is not just a physical place; it's a state of mind, a source of joy, and a sanctuary for relaxation and rejuvenation. Through our website, we aim to bring the beach experience to life and provide a virtual oasis where you can escape, dream, and immerse yourself in the coastal lifestyle. Step into a world of breathtaking beauty as we take you on a virtual journey to some of the most stunning beaches on the planet. From pristine tropical paradises with palm-fringed shores to rugged coastlines where towering cliffs meet the crashing waves, we showcase a diverse array of beach destinations that will leave you in awe. Discover hidden gems off the beaten path, iconic seaside getaways, and secluded coves waiting to be explored. Whether you're planning a beach vacation, seeking advice on beach essentials, or looking for tips on how to make the most of your time by the ocean, we've got you covered. Our team of beach enthusiasts and travel experts have curated a wealth of resources to help you navigate the world of beaches. From practical packing lists and safety guidelines to insider recommendations for activities, attractions, and local cuisine, we provide all the information you need to plan your perfect beach getaway. we believe that the beach is a playground for adventure, relaxation, and self-discovery. Dive into our wide range of articles, videos, and guides to unlock your inner beachgoer. Whether you're looking to catch the perfect wave, indulge in a beachside yoga session, or simply lounge under a palm tree with a good book, we offer inspiration, tips, and insights to help you make the most of your beach experience. The beach is not just about sunbathing and swimming—it's a vibrant and rich culture that transcends borders. Immerse yourself in the beach lifestyle as we explore the arts, music, fashion, and cuisine that have been shaped by coastal communities. Discover the latest beach fashion trends, learn how to create delicious beach-inspired cocktails, and get a glimpse into the creative works inspired by the sea. We celebrate the diverse cultures that call the beach their home and invite you to join the global beach community. We're thrilled to have you join our community of beach lovers. Whether you're an experienced surfer, a sun-worshipper, or a curious traveler looking to dip your toes into the beach culture, we invite you to embark on a journey of sun, sea, and serenity with us. Let the waves inspire you, the sand ground you, and the beauty of the beach fill your heart with joy.</p>
+    </div>
+
+    <small class="credit">&copy; Designed by initiate, photos from unsplash.</small>
+    <script>
+        let maxScroll = document.body.scrollHeight - window.innerHeight;
+        let initial = 0;
+        let is_paused = false;
+
+        function init() {
+            var scrollInterval = setInterval(() => {
+                if(!is_paused) {
+                    initial += 0.5;
+                    window.scrollTo(0, initial);
+                    if(initial >= maxScroll) {
+                        clearInterval(scrollInterval);
+                    }
+                }
+            }, 1000 / 60);
+        }
+
+        window.addEventListener('scroll', (e) => {
+            initial = window.scrollY;
+        })
+
+        init();
+    </script>
+</body>
+</html>
